@@ -3,39 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自己紹介</title>
-		<!-- reset.css ress -->
-		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <title>My Portfolio | スーパーITエンジニア</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="body">
-    <header class="header">
-        <nav class="nav">
-            <ul>
-                <li><a href="#profile">プロフィール</a></li>
-                <li><a href="#hobbies">趣味</a></li>
-            </ul>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="logo">My Profile</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills & Hobbies</a>
+            <a href="#contact">Contact</a>
         </nav>
-        <h1>わたしの自己紹介サイト</h1>
     </header>
-    <main>
-        <section id="profile">
-            <h2>プロフィール</h2>
-            <p>こんにちは、わたしは[あなたの名前]です。これはわたしの自己紹介サイトです。</p>
-        </section>
-        <section id="hobbies">
-            <h2>趣味</h2>
-            <ul>
-                <li>読書</li>
-                <li>旅行</li>
-                <li>プログラミング</li>
-            </ul>
-        </section>
-    </main>
-    <footer class="footer">
-        <p>&copy; 2024 わたしの自己紹介サイト</p>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm a <span class="highlight">Super IT Engineer</span> Student</h1>
+            <p>ITの技術力と、野球で鍛えた圧倒的なエネルギーを武器に突き進みます。</p>
+            <a href="#about" class="btn">もっと知る</a>
+        </div>
+    </section>
+
+    <!-- 自己紹介セクション -->
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>現在、<strong>スーパーITエンジニア専攻</strong>で最先端のテクノロジーを学んでいます。</p>
+                <p>効率的なコード、美しい設計、そして技術に対する探究心を大切にしています。一方で、マウンドに立てば熱い闘志を燃やす野球人でもあります。理論と体力を掛け合わせ、これまでにないプロダクトを生み出すことが目標です。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 趣味・特技セクション -->
+    <section id="skills" class="bg-dark">
+        <div class="container">
+            <h2>Hobbies & Special Skills</h2>
+            <div class="card-grid">
+                <!-- カード 1 -->
+                <div class="card clickable-card" data-target="skill-pitching">
+                    <div class="icon">⚾</div>
+                    <h3>特技：球投げ</h3>
+                    <p>指先にかかる感覚、エネルギーの伝達効率を突き詰めるのが得意です。キレのあるストレートで、技術の壁も打ち破ります。（クリックで秘密が…？）</p>
+                </div>
+                <!-- カード 2 -->
+                <div class="card">
+                    <div class="icon">🎮</div>
+                    <h3>趣味：プロスピ</h3>
+                    <p>ゲーム内でも野球の戦略や配球をデータとして分析。勝つためのシミュレーションは怠りません。</p>
+                </div>
+                <!-- カード 3 -->
+                <div class="card">
+                    <div class="icon">🔥</div>
+                    <h3>趣味：野球</h3>
+                    <p>実際に白球を追うのも、観るのも大好きです。チームのために全力を尽くすパッションと、日々の泥臭い努力のベースはここから来ています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- コンタクトセクション -->
+    <section id="contact" class="container">
+        <h2>Contact</h2>
+        <p class="center">何か一緒に面白いものを作りませんか？ お気軽にご連絡ください。</p>
+        <div class="center">
+            <a href="mailto:your-email@example.com" class="btn">メールを送る</a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2026 Super IT Engineer & Pitcher. All Rights Reserved.</p>
     </footer>
+
     <script src="js/scripts.js"></script>
 </body>
 </html>
-
