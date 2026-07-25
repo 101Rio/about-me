@@ -61,6 +61,14 @@ header .logo {
     color: var(--accent);
 }
 
+/* ロゴ（My Profile）の下線を完全に消す */
+header a.logo,
+header a.logo:hover,
+header a.logo:visited,
+header a.logo:active {
+    text-decoration: none !important;
+}
+
 header nav a {
     color: var(--text-main);
     text-decoration: none;
