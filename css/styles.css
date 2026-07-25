@@ -341,3 +341,81 @@ body.hovered .cursor-outline {
 body.hovered .cursor-dot {
     transform: translate(-50%, -50%) scale(1.5);
 }
+
+/* ==========================================================================
+   レスポンシブ対応 (スマートフォン・タブレット向け)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* --- 全体余白調整 --- */
+    .container {
+        padding: 50px 20px;
+    }
+
+    /* --- ヘッダーのレイアウト調整 --- */
+    header {
+        padding: 15px 20px !important;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header nav {
+        display: flex;
+        gap: 15px;
+    }
+
+    header nav a {
+        margin-left: 0;
+        font-size: 0.9rem;
+    }
+
+    /* --- ヒーローセクション調整 --- */
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 120px 20px 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.4;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    /* タイピングアニメーションの折り返し対応 */
+    .typing-text {
+        white-space: normal; /* スマホでは折返しを許可 */
+        width: 100% !important; /* 幅制限を解除して画面内に収める */
+        animation: none; /* スマホ表示時はアニメーションを無効化（崩れ防止） */
+        border-right: none;
+    }
+
+    .typing-text::after {
+        display: none; /* スマホではカーソル描画を非表示 */
+    }
+
+    /* --- 見出しサイズ調整 --- */
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 35px;
+    }
+
+    /* --- カードグリッド調整 --- */
+    .card-grid {
+        grid-template-columns: 1fr; /* スマホでは1列に */
+        gap: 20px;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+
+    /* --- タッチデバイスでのカスタムカーソル非表示 --- */
+    .cursor-dot,
+    .cursor-outline {
+        display: none !important;
+    }
+}
