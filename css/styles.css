@@ -206,3 +206,80 @@ footer {
     font-size: 0.9rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/* ==========================================================================
+   タイピングアニメーション
+   ========================================================================== */
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;   /* 改行を防ぐ */
+    overflow: hidden;   /* はみ出た文字を隠す */
+    position: relative;   /* カーソル位置指定用 */
+    padding-right: 4px;   /* 文字とカーソルの隙間調整 */
+    width: 0;   /* 初期状態は幅0 */
+    animation: typing 3s steps(35, end) forwards;   /* 3秒かけてタイピング */
+}
+
+/* 疑似要素でカーソルを作成（高さを自由に調整可能） */
+.typing-text::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;   /* 上下の余白（数値を大きくすると短くなる） */
+    height: 70%;   /* カーソルの高さ（文字全体の70%に指定） */
+    width: 3px;   /* カーソルの太さ */
+    background-color: var(--accent);
+    /* 点滅アニメーション（1.8秒＝タイピング中の3秒間で4回点滅して最後は透明に） */
+    animation: blink 0.75s step-end 4 forwards;
+}
+
+/* ==========================================================================
+   タイピングアニメーション
+   ========================================================================== */
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;          /* 改行を防ぐ */
+    overflow: hidden;             /* はみ出た文字を隠す */
+    position: relative;           /* カーソル位置指定用 */
+    padding-right: 4px;           /* 文字とカーソルの隙間調整 */
+    width: 0;                     /* 初期状態は幅0 */
+    animation: typing 3s steps(35, end) forwards; /* 3秒かけてタイピング */
+}
+
+/* 疑似要素でカーソルを作成 */
+.typing-text::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;                   /* カーソルの上の余白（サイズ調整） */
+    height: 70%;                /* カーソルの縦サイズ */
+    width: 3px;                 /* カーソルの太さ */
+    background-color: var(--accent);
+    animation: blink 0.75s step-end infinite; /* 無限点滅 */
+}
+
+/* JavaScriptでタイピング終了時に付与するクラス（カーソル消去） */
+.typing-text.typed-complete::after {
+    display: none !important;
+}
+
+/* 文字が出現するキーフレーム */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* 点滅キーフレーム */
+@keyframes blink {
+    from, to { opacity: 0; }
+    50%      { opacity: 1; }
+}
+
+/* Contactセクションのボタン位置調整 */
+#contact .center:has(.btn) {
+    margin-top: 30px; /* ここで位置を下げます（数値を増やすとさらに下に下がります） */
+}
+
+#contact .btn {
+    display: inline-block;
+}

@@ -10,22 +10,18 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 「球投げ」のカードをクリックした時のちょっとしたギミック
-const ballCard = document.querySelector('.clickable-card');
 
-if (ballCard) {
-    ballCard.addEventListener('click', () => {
-        // コンソールにこっそりメッセージを表示（エンジニアらしく！）
-        console.log("⚾ ピッチングメカニクス発動：エネルギー伝達率 100%!");
-        
-        // カードを一時的に光らせるエフェクト
-        ballCard.style.boxShadow = "0 0 25px rgba(56, 189, 248, 0.8)";
-        ballCard.style.transition = "boxShadow 0.1s ease";
-        
-        alert("ナイスピッチ！ 圧倒的な球速のストレートが、サーバーの壁を突き抜けました！");
-        
-        setTimeout(() => {
-            ballCard.style.boxShadow = "none";
-        }, 500);
-    });
-}
+// タイピングアニメーション終了時にカーソルを非表示にする
+document.addEventListener('DOMContentLoaded', () => {
+    const typingText = document.querySelector('.typing-text');
+    
+    if (typingText) {
+        // CSSのアニメーション(typing)が終わったイベントを検知
+        typingText.addEventListener('animationend', (e) => {
+            // widthアニメーションが完了したタイミングでクラスを付与
+            if (e.animationName === 'typing') {
+                typingText.classList.add('typed-complete');
+            }
+        });
+    }
+});
