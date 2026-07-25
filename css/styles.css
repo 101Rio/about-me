@@ -269,12 +269,6 @@ footer {
     to { width: 100%; }
 }
 
-/* 点滅キーフレーム */
-@keyframes blink {
-    from, to { opacity: 0; }
-    50%      { opacity: 1; }
-}
-
 /* Contactセクションのボタン位置調整 */
 #contact .center:has(.btn) {
     margin-top: 30px; /* ここで位置を下げます（数値を増やすとさらに下に下がります） */
@@ -282,4 +276,68 @@ footer {
 
 #contact .btn {
     display: inline-block;
+}
+
+/* ==========================================================================
+   カスタムマウスカーソル
+   ========================================================================== */
+@media (pointer: fine) {
+    body {
+        cursor: none;
+    }
+    a, button, .clickable-card {
+        cursor: none;
+    }
+}
+
+/* 中心にある小さなドット */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* 最初は非表示 */
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+/* 追従する外側の円 */
+.cursor-outline {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* 最初は非表示 */
+    transition: opacity 0.2s ease, transform 0.15s ease-out, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* 画面内にいるときだけ表示するクラス */
+body.cursor-active .cursor-dot,
+body.cursor-active .cursor-outline {
+    opacity: 1;
+}
+
+/* ボタンやリンクにホバーした時の強調スタイル */
+body.hovered .cursor-outline {
+    width: 55px;
+    height: 55px;
+    background-color: rgba(56, 189, 248, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+body.hovered .cursor-dot {
+    transform: translate(-50%, -50%) scale(1.5);
 }
