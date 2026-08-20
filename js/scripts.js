@@ -1,16 +1,16 @@
 // ==========================================================================
-// スクロール時のヘッダーアニメーション（少し透過をコントロール）
+// スクロール時のヘッダー表示切り替え
 // ==========================================================================
-window.addEventListener('scroll', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     if (!header) return;
-    if (window.scrollY > 50) {
-        header.style.padding = '15px 40px';
-        header.style.backgroundColor = 'rgba(10, 15, 29, 0.95)';
-    } else {
-        header.style.padding = '20px 40px';
-        header.style.backgroundColor = 'rgba(10, 15, 29, 0.9)';
-    }
+
+    const updateHeader = () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    };
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
 });
 
 // ==========================================================================
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================================================
-// カスタムマウスカーソルの追従制御（画面外検知つき）
+// カスタムマウスカーソルの追従制御（PCの通常幅 + マウス操作時のみ）
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     const cursorDot = document.querySelector('.cursor-dot');
@@ -51,7 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!cursorDot || !cursorOutline) return;
 
+    const customCursorQuery = window.matchMedia(
+        '(min-width: 901px) and (hover: hover) and (pointer: fine)'
+    );
+
+    const updateCursorMode = () => {
+        const isEnabled = customCursorQuery.matches;
+
+        document.body.classList.toggle('custom-cursor-enabled', isEnabled);
+
+        if (!isEnabled) {
+            document.body.classList.remove('cursor-active', 'hovered');
+        }
+    };
+
+    updateCursorMode();
+
+    if (typeof customCursorQuery.addEventListener === 'function') {
+        customCursorQuery.addEventListener('change', updateCursorMode);
+    } else {
+        customCursorQuery.addListener(updateCursorMode);
+    }
+
     window.addEventListener('mousemove', (e) => {
+        if (!customCursorQuery.matches) return;
+
         const posX = e.clientX;
         const posY = e.clientY;
 
@@ -69,14 +93,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('mouseenter', () => {
-        document.body.classList.add('cursor-active');
+        if (customCursorQuery.matches) {
+            document.body.classList.add('cursor-active');
+        }
     });
 
     const interactiveElements = document.querySelectorAll('a, button, .btn, .card');
 
     interactiveElements.forEach((el) => {
         el.addEventListener('mouseenter', () => {
-            document.body.classList.add('hovered');
+            if (customCursorQuery.matches) {
+                document.body.classList.add('hovered');
+            }
         });
         el.addEventListener('mouseleave', () => {
             document.body.classList.remove('hovered');
