@@ -498,7 +498,7 @@ body.hovered .cursor-dot {
     }
 
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.1rem;
         line-height: 1.4;
     }
 
@@ -508,10 +508,9 @@ body.hovered .cursor-dot {
     }
 
     .typing-text {
-        white-space: normal;
-        width: 100% !important;
-        animation: none;
-        border-right: none;
+        white-space: nowrap;
+        width: 0;
+        animation: typing 3s steps(35, end) forwards;
     }
 
     .typing-text::after {
@@ -545,3 +544,20 @@ body.hovered .cursor-dot {
         display: none !important;
     }
 }
+body {
+        overflow-x: hidden; /* 横スクロールの発生を防ぐ */
+    }
+
+    .about-text,
+    .profile-list,
+    .profile-list li {
+        width: 100% !important;
+        max-width: 100% !important;
+        word-break: break-word; /* 枠からはみ出る長い文字列を強制折り返し */
+        overflow-wrap: break-word;
+    }
+
+    /* プロフィールリストをスマホでは1列に並べる */
+    .profile-list {
+        grid-template-columns: 1fr !important;
+    }
