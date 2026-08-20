@@ -61,7 +61,6 @@ header .logo {
     color: var(--accent);
 }
 
-/* ロゴ（My Profile）の下線を完全に消す */
 header a.logo,
 header a.logo:hover,
 header a.logo:visited,
@@ -74,10 +73,18 @@ header nav a {
     text-decoration: none;
     margin-left: 20px;
     transition: color 0.3s;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
 }
 
 header nav a:hover {
     color: var(--accent);
+}
+
+/* 現在のページのナビゲーションリンクを強調表示 */
+header nav a.active {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
 }
 
 .btn {
@@ -91,6 +98,7 @@ header nav a:hover {
     font-weight: bold;
     transition: all 0.3s ease;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .btn:hover {
@@ -102,7 +110,7 @@ header nav a:hover {
 /* ==========================================================================
    セクションごとの固有デザイン
    ========================================================================== */
-/* ヒーローセクション */
+/* ヒーローセクション（TOPページ） */
 .hero {
     height: 100vh;
     display: flex;
@@ -131,6 +139,34 @@ header nav a:hover {
 .highlight {
     color: var(--accent);
     text-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* サブページ用の簡易ヒーロー（About / Skills / Favorites / Contact） */
+.page-hero {
+    padding: 160px 20px 60px;
+    text-align: center;
+    background: radial-gradient(circle at center, #1e293b 0%, var(--bg-main) 70%);
+}
+
+.page-hero .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.page-hero h1 {
+    font-size: 2.4rem;
+}
+
+.page-hero p {
+    color: var(--text-sub);
+    margin-top: 14px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* タイトル共通 */
@@ -167,7 +203,38 @@ h2::after {
     color: var(--text-main);
 }
 
-/* カードグリッド（趣味・特技） */
+.about-grid {
+    display: grid;
+    gap: 30px;
+}
+
+/* プロフィール情報リスト（Aboutページ） */
+.profile-list {
+    list-style: none;
+    max-width: 800px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.profile-list li {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.profile-list .label {
+    display: block;
+    color: var(--accent);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+/* カードグリッド（趣味・特技・好きなもの） */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -206,6 +273,88 @@ h2::after {
     font-size: 0.95rem;
 }
 
+/* TOPページ：各コンテンツへのリンクカード */
+.nav-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-card .arrow {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   お問い合わせフォーム
+   ========================================================================== */
+.contact-form {
+    max-width: 560px;
+    margin: 0 auto;
+    display: grid;
+    gap: 22px;
+}
+
+.form-group {
+    display: grid;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--text-main);
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.form-note {
+    text-align: center;
+    color: var(--text-sub);
+    margin-top: 30px;
+    font-size: 0.95rem;
+}
+
+.form-success {
+    display: none;
+    max-width: 560px;
+    margin: 0 auto;
+    background-color: var(--bg-card);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.form-success.visible {
+    display: block;
+    animation: fade-in 0.4s ease;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* フッター */
 footer {
     text-align: center;
@@ -216,74 +365,44 @@ footer {
 }
 
 /* ==========================================================================
-   タイピングアニメーション
+   タイピングアニメーション（TOPページのみ）
    ========================================================================== */
 .typing-text {
     display: inline-block;
-    white-space: nowrap;   /* 改行を防ぐ */
-    overflow: hidden;   /* はみ出た文字を隠す */
-    position: relative;   /* カーソル位置指定用 */
-    padding-right: 4px;   /* 文字とカーソルの隙間調整 */
-    width: 0;   /* 初期状態は幅0 */
-    animation: typing 3s steps(35, end) forwards;   /* 3秒かけてタイピング */
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    padding-right: 4px;
+    width: 0;
+    animation: typing 3s steps(35, end) forwards;
 }
 
-/* 疑似要素でカーソルを作成（高さを自由に調整可能） */
 .typing-text::after {
     content: '';
     position: absolute;
     right: 0;
-    top: 15%;   /* 上下の余白（数値を大きくすると短くなる） */
-    height: 70%;   /* カーソルの高さ（文字全体の70%に指定） */
-    width: 3px;   /* カーソルの太さ */
+    top: 15%;
+    height: 70%;
+    width: 3px;
     background-color: var(--accent);
-    /* 点滅アニメーション（1.8秒＝タイピング中の3秒間で4回点滅して最後は透明に） */
-    animation: blink 0.75s step-end 4 forwards;
 }
 
-/* ==========================================================================
-   タイピングアニメーション
-   ========================================================================== */
-.typing-text {
-    display: inline-block;
-    white-space: nowrap;          /* 改行を防ぐ */
-    overflow: hidden;             /* はみ出た文字を隠す */
-    position: relative;           /* カーソル位置指定用 */
-    padding-right: 4px;           /* 文字とカーソルの隙間調整 */
-    width: 0;                     /* 初期状態は幅0 */
-    animation: typing 3s steps(35, end) forwards; /* 3秒かけてタイピング */
-}
-
-/* 疑似要素でカーソルを作成 */
-.typing-text::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 15%;                   /* カーソルの上の余白（サイズ調整） */
-    height: 70%;                /* カーソルの縦サイズ */
-    width: 3px;                 /* カーソルの太さ */
-    background-color: var(--accent);
-    animation: blink 0.75s step-end infinite; /* 無限点滅 */
-}
-
-/* JavaScriptでタイピング終了時に付与するクラス（カーソル消去） */
 .typing-text.typed-complete::after {
     display: none !important;
 }
 
-/* 文字が出現するキーフレーム */
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
 }
 
-/* Contactセクションのボタン位置調整 */
-#contact .center:has(.btn) {
-    margin-top: 30px; /* ここで位置を下げます（数値を増やすとさらに下に下がります） */
+@keyframes blink {
+    50% { background-color: transparent; }
 }
 
-#contact .btn {
-    display: inline-block;
+/* Contactセクションのボタン位置調整 */
+#contact-cta .center:has(.btn) {
+    margin-top: 30px;
 }
 
 /* ==========================================================================
@@ -298,7 +417,6 @@ footer {
     }
 }
 
-/* 中心にある小さなドット */
 .cursor-dot {
     width: 8px;
     height: 8px;
@@ -310,11 +428,10 @@ footer {
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    opacity: 0; /* 最初は非表示 */
+    opacity: 0;
     transition: opacity 0.2s ease, transform 0.1s ease;
 }
 
-/* 追従する外側の円 */
 .cursor-outline {
     width: 36px;
     height: 36px;
@@ -326,18 +443,16 @@ footer {
     pointer-events: none;
     z-index: 9998;
     transform: translate(-50%, -50%);
-    opacity: 0; /* 最初は非表示 */
+    opacity: 0;
     transition: opacity 0.2s ease, transform 0.15s ease-out, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
     box-shadow: 0 0 10px var(--accent-glow);
 }
 
-/* 画面内にいるときだけ表示するクラス */
 body.cursor-active .cursor-dot,
 body.cursor-active .cursor-outline {
     opacity: 1;
 }
 
-/* ボタンやリンクにホバーした時の強調スタイル */
 body.hovered .cursor-outline {
     width: 55px;
     height: 55px;
@@ -354,12 +469,10 @@ body.hovered .cursor-dot {
    レスポンシブ対応 (スマートフォン・タブレット向け)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* --- 全体余白調整 --- */
     .container {
         padding: 50px 20px;
     }
 
-    /* --- ヘッダーのレイアウト調整 --- */
     header {
         padding: 15px 20px !important;
         flex-direction: column;
@@ -368,6 +481,8 @@ body.hovered .cursor-dot {
 
     header nav {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 15px;
     }
 
@@ -376,7 +491,6 @@ body.hovered .cursor-dot {
         font-size: 0.9rem;
     }
 
-    /* --- ヒーローセクション調整 --- */
     .hero {
         height: auto;
         min-height: 100vh;
@@ -393,27 +507,32 @@ body.hovered .cursor-dot {
         margin-bottom: 30px;
     }
 
-    /* タイピングアニメーションの折り返し対応 */
     .typing-text {
-        white-space: normal; /* スマホでは折返しを許可 */
-        width: 100% !important; /* 幅制限を解除して画面内に収める */
-        animation: none; /* スマホ表示時はアニメーションを無効化（崩れ防止） */
+        white-space: normal;
+        width: 100% !important;
+        animation: none;
         border-right: none;
     }
 
     .typing-text::after {
-        display: none; /* スマホではカーソル描画を非表示 */
+        display: none;
     }
 
-    /* --- 見出しサイズ調整 --- */
+    .page-hero {
+        padding: 120px 20px 40px;
+    }
+
+    .page-hero h1 {
+        font-size: 1.8rem;
+    }
+
     h2 {
         font-size: 1.8rem;
         margin-bottom: 35px;
     }
 
-    /* --- カードグリッド調整 --- */
     .card-grid {
-        grid-template-columns: 1fr; /* スマホでは1列に */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
@@ -421,7 +540,6 @@ body.hovered .cursor-dot {
         padding: 25px 20px;
     }
 
-    /* --- タッチデバイスでのカスタムカーソル非表示 --- */
     .cursor-dot,
     .cursor-outline {
         display: none !important;

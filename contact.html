@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | My Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contact">
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+    <!-- ヘッダー -->
+    <header>
+        <a href="index.html" class="logo">My Profile</a>
+        <nav>
+            <a href="index.html" data-page="index">TOP</a>
+            <a href="about.html" data-page="about">About</a>
+            <a href="skills.html" data-page="skills">Skills & Hobbies</a>
+            <a href="favorites.html" data-page="favorites">Favorites</a>
+            <a href="contact.html" data-page="contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <span class="eyebrow">Contact</span>
+        <h1>お問い合わせ</h1>
+        <p>何か一緒に面白いものを作りませんか？ お気軽にご連絡ください。</p>
+    </section>
+
+    <section id="contact-cta" class="container">
+        <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+                <label for="name">お名前</label>
+                <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+            </div>
+            <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">件名</label>
+                <input type="text" id="subject" name="subject" placeholder="お問い合わせの件名">
+            </div>
+            <div class="form-group">
+                <label for="message">メッセージ</label>
+                <textarea id="message" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+            </div>
+            <button type="submit" class="btn">送信する</button>
+        </form>
+
+        <div id="form-success" class="form-success">
+            <p><span class="form-success-name">ゲスト</span>様、お問い合わせありがとうございます！</p>
+            <p>内容を確認の上、追ってご連絡いたします。</p>
+        </div>
+
+        <p class="form-note">
+            このフォームは送信機能を実装していないデモ用フォームです。実際にご連絡いただく際は
+            <a href="mailto:your-email@example.com">メールを送る</a> よりお願いいたします。
+        </p>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2026 My Profile. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
