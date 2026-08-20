@@ -11,17 +11,25 @@
 <div class="cursor-dot"></div>
 <div class="cursor-outline"></div>
 
-    <!-- ヘッダー -->
-    <header>
-        <a href="index.html" class="logo">My Profile</a>
-        <nav>
-            <a href="index.html" data-page="index">TOP</a>
-            <a href="about.html" data-page="about">About</a>
-            <a href="skills.html" data-page="skills">Skills & Hobbies</a>
-            <a href="favorites.html" data-page="favorites">Favorites</a>
-            <a href="contact.html" data-page="contact">Contact</a>
-        </nav>
-    </header>
+    <!-- 各HTMLの header 部分 -->
+<header>
+    <!-- 左側に配置するハンバーガーボタン -->
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <a href="index.html" class="logo">My Profile</a>
+
+    <nav id="nav-menu">
+        <a href="index.html" data-page="index">TOP</a>
+        <a href="about.html" data-page="about">About</a>
+        <a href="skills.html" data-page="skills">Skills & Hobbies</a>
+        <a href="favorites.html" data-page="favorites">Favorites</a>
+        <a href="contact.html" data-page="contact">Contact</a>
+    </nav>
+</header>
 
     <section class="page-hero">
         <span class="eyebrow">Skills & Hobbies</span>

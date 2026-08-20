@@ -105,3 +105,27 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
     });
 });
+
+// ==========================================================================
+// ハンバーガーメニューの開閉制御
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (!hamburger || !navMenu) return;
+
+    // ボタンクリックでメニュー開閉
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('open');
+    });
+
+    // メニュー項目をクリックしたらメニューを閉じる
+    document.querySelectorAll('header nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navMenu.classList.remove('open');
+        });
+    });
+});
