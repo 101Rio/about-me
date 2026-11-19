@@ -33,24 +33,28 @@ function setupNavigation() {
     window.addEventListener("pageshow", () => setOpen(false));
 }
 
-// 挨拶だけを一文字ずつ表示し、名前と見出しの読み上げは最初から利用できるようにする。
-function typeGreeting() {
-    const greeting = document.querySelector("[data-typing]");
+// 挨拶から名前まで、HTMLに書かれた順に一文字ずつ表示する。
+async function typeGreeting() {
+    const lines = Array.from(document.querySelectorAll("[data-typing]"));
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (!greeting || reducedMotion.matches) return;
+    if (!lines.length || reducedMotion.matches) return;
 
-    const text = greeting.textContent;
-    const start = performance.now();
-    greeting.textContent = text.slice(0, 1);
-    greeting.classList.add("is-typing");
-    function advance(now) {
-        const count = reducedMotion.matches ? text.length : 1 + Math.floor((now - start) / 53);
-        const visible = text.slice(0, Math.max(1, count));
-        if (greeting.textContent !== visible) greeting.textContent = visible;
-        if (count < text.length) requestAnimationFrame(advance);
-        else greeting.classList.remove("is-typing");
+    const texts = lines.map(line => line.textContent);
+    for (const line of lines) line.textContent = "";
+
+    for (const [index, line] of lines.entries()) {
+        line.classList.add("is-typing");
+        for (const letter of texts[index]) {
+            await new Promise(resolve => setTimeout(resolve, 60));
+            if (reducedMotion.matches) {
+                lines.forEach((part, i) => { part.textContent = texts[i]; });
+                line.classList.remove("is-typing");
+                return;
+            }
+            line.textContent += letter;
+        }
+        line.classList.remove("is-typing");
     }
-    requestAnimationFrame(advance);
 }
 
 // TOPの実機風ディスプレイ。見た目と読み上げの状態を一緒に切り替える。
@@ -74,38 +78,31 @@ function setupDisplay() {
     });
 }
 
-// マウスで操作できる要素に重ねる、元サイトのカーソルリング。
+// リングの中心をマウスの位置に合わせる。リンク上での拡大はCSSで扱う。
 function setupPointer() {
-    const enabled = window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+    const root = document.documentElement;
     const ring = document.createElement("span");
     ring.className = "pointer-ring";
     ring.setAttribute("aria-hidden", "true");
+    document.body.append(ring);
 
-    const hide = () => ring.classList.remove("visible");
+    const hide = () => root.classList.remove("has-mouse-position");
     function move(event) {
-        if (event.pointerType !== "mouse" || !event.target.closest("a, button")) {
+        if (event.pointerType !== "mouse") {
             hide();
             return;
         }
-        ring.style.transform = `translate3d(${event.clientX - 10.5}px, ${event.clientY - 10.5}px, 0)`;
-        ring.classList.add("visible");
-    }
-    function update() {
-        hide();
-        if (enabled.matches) {
-            document.body.append(ring);
-            document.addEventListener("pointermove", move, { passive: true });
-        } else {
-            document.removeEventListener("pointermove", move);
-            ring.remove();
-        }
+        ring.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+        root.classList.add("has-mouse-position");
     }
 
-    update();
-    enabled.addEventListener("change", update);
-    document.documentElement.addEventListener("pointerleave", hide);
+    document.addEventListener("pointerover", move, { passive: true });
+    document.addEventListener("pointermove", move, { passive: true });
+    document.addEventListener("pointerdown", move, { passive: true });
+    root.addEventListener("pointerleave", hide);
+    document.addEventListener("pointercancel", hide);
     window.addEventListener("blur", hide);
-    window.addEventListener("scroll", hide, { passive: true });
+    window.addEventListener("pagehide", hide);
 }
 
 // デモフォーム。下書きはページ内だけで扱う。
@@ -170,8 +167,13 @@ function setupContactForm() {
     fields.disabled = false;
 }
 
-setupNavigation();
-typeGreeting();
-setupDisplay();
-setupPointer();
-setupContactForm();
+// トップでは描画前に目印を付け、完成した見出しが一瞬だけ見えるのを防ぐ。
+document.documentElement.classList.add("typing-pending");
+document.addEventListener("DOMContentLoaded", () => {
+    typeGreeting();
+    document.documentElement.classList.remove("typing-pending");
+    setupNavigation();
+    setupDisplay();
+    setupPointer();
+    setupContactForm();
+}, { once: true });
