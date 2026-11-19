@@ -1,87 +1,115 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | スーパーITエンジニア</title>
-    <link rel="stylesheet" href="css/styles.css?v=4">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a0f1d">
+    <meta name="description" content="スーパーITエンジニア専攻の学生 Rio Imai の自己紹介サイト。Web制作の学びや趣味、好きなものを紹介します。">
+    <title>Rio Imai | My Profile</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAyUlEQVR42u2XsRGEMAwE5Rua+Rq+CgLXQE3U8AFVUAPlQESAMFjmfXKCQmDYlUEaSaRxBH1hWNaVCRw/4cCEJzzFCKkbv/5LgcdpPp0EvOD63TsTVw94SJwEWsQrgJI/111ghzMlYM2cJQFrubAkUFKzDAmUNo7aEqYyZEqY+4CWqNW2zQKsqsATuOsJMOEiIl0N+N3nyMmiVebFnZA1rHS50ovTnIX/I/eoE74TEU2APf2kGNDrElMitZgE79VMJ4y7xdFjOW0eGwyCXj4726FuAAAAAElFTkSuQmCC">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/artwork.js" defer></script>
+    <script src="js/scripts.js" defer></script>
 </head>
-<body data-page="index">
-
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-
-    <!-- 各HTMLの header 部分 -->
-<header>
-    <!-- 左側に配置するハンバーガーボタン -->
-    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <a href="index.html" class="logo">My Profile</a>
-
-    <nav id="nav-menu">
-        <a href="index.html" data-page="index">TOP</a>
-        <a href="about.html" data-page="about">About</a>
-        <a href="skills.html" data-page="skills">Skills & Hobbies</a>
-        <a href="favorites.html" data-page="favorites">Favorites</a>
-        <a href="contact.html" data-page="contact">Contact</a>
-    </nav>
+<body id="top" data-page="index">
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="masthead">
+    <div class="wrap header-inner">
+        <a class="brand" href="index.html" lang="en" aria-label="My Profile トップ">
+            <span class="terminal-mark" aria-hidden="true"><i></i><b></b></span><span>My Profile<span class="brand-period">.</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く" hidden>
+            <span class="burger" aria-hidden="true"></span>
+        </button>
+        <nav id="main-nav" class="main-nav" aria-label="メインナビゲーション">
+            <a href="index.html" aria-current="page" lang="en">Top</a>
+            <a href="about.html" lang="en">About</a>
+            <a href="skills.html" lang="en">Skills &amp; Hobbies</a>
+            <a href="favorites.html" lang="en">Favorites</a>
+            <a href="contact.html" lang="en">Contact</a>
+        </nav>
+        <a class="github-link" href="https://github.com/101Rio" lang="en">
+            GitHub <i class="arrow arrow-up-right" aria-hidden="true"></i>
+        </a>
+    </div>
 </header>
-
-    <!-- ヒーローセクション -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>
-                <span class="typing-text">
-                    <span class="typing-line typing-line-1">Hello, I'm <span class="highlight">Rio Imai</span>.</span><br class="typing-break">
-                    <span class="typing-line typing-line-2">Majoring in</span><br class="typing-break">
-                    <span class="typing-line typing-line-3">Super IT Engineering</span>
-                </span>
-            </h1>
-            <p>ウェブサイトへようこそ</p>
-            <a href="about.html" class="btn">もっと知る</a>
+<main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="home-title">
+        <div class="wrap hero-layout">
+            <div class="hero-copy">
+                <p class="eyebrow" lang="en">Super IT Engineering</p>
+                <h1 class="hero-title" id="home-title" lang="en" aria-label="Hello, I'm Rio Imai.">
+                    <span class="title-line greeting"><span class="type-ink" data-typing>Hello, I'm</span></span>
+                    <span class="title-line name"><span class="type-ink">Rio Imai.</span></span>
+                </h1>
+                <p class="hero-lead">スーパーITエンジニア専攻の学生です。<br>Web制作と、音楽と、野球が好きです。</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="about.html">プロフィールを見る <i class="arrow arrow-right" aria-hidden="true"></i></a>
+                    <a class="quiet-link" href="#explore">サイトを巡る <i class="arrow arrow-down" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <figure class="terminal-figure">
+                <div class="terminal-stage">
+                    <span class="register register-a" aria-hidden="true"></span>
+                    <span class="register register-b" aria-hidden="true"></span>
+                    <canvas class="hero-art" data-art="terminal" width="312" height="212" role="img" aria-label="画面に RIO IMAI と表示された、キーボードとマウス付きのレトロPC">自己紹介を映すレトロPCのピクセルアート。</canvas>
+                    <noscript><div class="terminal-fallback"><span>&gt; whoami</span><strong lang="en">Rio Imai</strong></div></noscript>
+                </div>
+                <figcaption class="terminal-caption">
+                    <span lang="en"><i class="prompt-icon" aria-hidden="true"></i>Profile terminal</span>
+                    <button class="power-toggle" type="button" aria-label="ディスプレイの電源" aria-pressed="true" hidden>
+                        <i class="power-light" aria-hidden="true"></i><span class="power-text" lang="en">Display on</span>
+                    </button>
+                </figcaption>
+            </figure>
         </div>
     </section>
-
-    <!-- サイト内リンクセクション -->
-    <section class="container">
-        <h2>Explore</h2>
-        <div class="card-grid">
-            <a href="about.html" class="card nav-card">
-                <div class="icon">🧑‍💻</div>
-                <h3>About</h3>
-                <p>スーパーITエンジニア専攻での学びや、ものづくりに対する考え方を紹介しています。</p>
-                <span class="arrow">続きを見る →</span>
-            </a>
-            <a href="skills.html" class="card nav-card">
-                <div class="icon">🥋</div>
-                <h3>Skills & Hobbies</h3>
-                <p>空手で培った集中力や、野球観戦・ゲームなど普段の趣味についてまとめています。</p>
-                <span class="arrow">続きを見る →</span>
-            </a>
-            <a href="favorites.html" class="card nav-card">
-                <div class="icon">⭐</div>
-                <h3>Favorites</h3>
-                <p>好きな技術や食べ物など、自分を構成しているお気に入りを紹介しています。</p>
-                <span class="arrow">続きを見る →</span>
-            </a>
-            <a href="contact.html" class="card nav-card">
-                <div class="icon">✉️</div>
-                <h3>Contact</h3>
-                <p>お仕事のご相談や雑談まで、お気軽にご連絡ください。</p>
-                <span class="arrow">続きを見る →</span>
-            </a>
+    <section class="directory" id="explore" aria-labelledby="explore-title">
+        <div class="wrap">
+            <div class="directory-heading">
+                <h2 id="explore-title" lang="en">Explore<span class="period">.</span></h2>
+                <p>気になるページからどうぞ。</p>
+            </div>
+            <div class="directory-grid">
+                <a class="directory-card card-profile" href="about.html">
+                    <div class="directory-visual"><canvas data-art="profile" width="88" height="64" aria-hidden="true"></canvas><span class="card-arrow"><i class="arrow arrow-right" aria-hidden="true"></i></span></div>
+                    <div class="directory-copy">
+                        <h3 lang="en">About</h3>
+                        <p>自己紹介と専攻での学び</p>
+                    </div>
+                </a>
+                <a class="directory-card card-play" href="skills.html">
+                    <div class="directory-visual"><canvas data-art="play" width="88" height="64" aria-hidden="true"></canvas><span class="card-arrow"><i class="arrow arrow-right" aria-hidden="true"></i></span></div>
+                    <div class="directory-copy">
+                        <h3 lang="en">Skills &amp; Hobbies</h3>
+                        <p>空手・ゲーム・野球観戦</p>
+                    </div>
+                </a>
+                <a class="directory-card card-disc" href="favorites.html">
+                    <div class="directory-visual"><canvas data-art="disc" width="88" height="64" aria-hidden="true"></canvas><span class="card-arrow"><i class="arrow arrow-right" aria-hidden="true"></i></span></div>
+                    <div class="directory-copy">
+                        <h3 lang="en">Favorites</h3>
+                        <p>Python、ラーメン、音楽</p>
+                    </div>
+                </a>
+                <a class="directory-card card-mail" href="contact.html">
+                    <div class="directory-visual"><canvas data-art="mail" width="88" height="64" aria-hidden="true"></canvas><span class="card-arrow"><i class="arrow arrow-right" aria-hidden="true"></i></span></div>
+                    <div class="directory-copy">
+                        <h3 lang="en">Contact</h3>
+                        <p>お問い合わせフォーム</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
-
-    <!-- フッター -->
-    <footer>
-        <p>&copy; 2026 My Profile. All Rights Reserved.</p>
-    </footer>
-
-    <script src="js/scripts.js?v=4"></script>
+</main>
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <span lang="en">© 2026 Rio Imai<span class="footer-divider" aria-hidden="true">/</span>My Profile</span>
+        <a href="#top">ページの先頭へ <i class="arrow arrow-up" aria-hidden="true"></i></a>
+    </div>
+</footer>
 </body>
 </html>

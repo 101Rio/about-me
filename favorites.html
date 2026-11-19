@@ -1,83 +1,87 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favorites | My Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css?v=4">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a0f1d">
+    <meta name="description" content="Python、好きな配色、ラーメン、音楽。Rio Imai のお気に入りを紹介します。">
+    <title>Favorites | Rio Imai</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAyUlEQVR42u2XsRGEMAwE5Rua+Rq+CgLXQE3U8AFVUAPlQESAMFjmfXKCQmDYlUEaSaRxBH1hWNaVCRw/4cCEJzzFCKkbv/5LgcdpPp0EvOD63TsTVw94SJwEWsQrgJI/111ghzMlYM2cJQFrubAkUFKzDAmUNo7aEqYyZEqY+4CWqNW2zQKsqsATuOsJMOEiIl0N+N3nyMmiVebFnZA1rHS50ovTnIX/I/eoE74TEU2APf2kGNDrElMitZgE79VMJ4y7xdFjOW0eGwyCXj4726FuAAAAAElFTkSuQmCC">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/artwork.js" defer></script>
+    <script src="js/chapter-art.js" defer></script>
+    <script src="js/scripts.js" defer></script>
 </head>
-<body data-page="favorites">
-
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-
-    <!-- 各HTMLの header 部分 -->
-<header>
-    <!-- 左側に配置するハンバーガーボタン -->
-    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <a href="index.html" class="logo">My Profile</a>
-
-    <nav id="nav-menu">
-        <a href="index.html" data-page="index">TOP</a>
-        <a href="about.html" data-page="about">About</a>
-        <a href="skills.html" data-page="skills">Skills & Hobbies</a>
-        <a href="favorites.html" data-page="favorites">Favorites</a>
-        <a href="contact.html" data-page="contact">Contact</a>
-    </nav>
+<body id="top" data-page="favorites">
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="masthead">
+    <div class="wrap header-inner">
+        <a class="brand" href="index.html" lang="en" aria-label="My Profile トップ">
+            <span class="terminal-mark" aria-hidden="true"><i></i><b></b></span><span>My Profile<span class="brand-period">.</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く" hidden>
+            <span class="burger" aria-hidden="true"></span>
+        </button>
+        <nav id="main-nav" class="main-nav" aria-label="メインナビゲーション">
+            <a href="index.html" lang="en">Top</a>
+            <a href="about.html" lang="en">About</a>
+            <a href="skills.html" lang="en">Skills &amp; Hobbies</a>
+            <a href="favorites.html" aria-current="page" lang="en">Favorites</a>
+            <a href="contact.html" lang="en">Contact</a>
+        </nav>
+        <a class="github-link" href="https://github.com/101Rio" lang="en">
+            GitHub <i class="arrow arrow-up-right" aria-hidden="true"></i>
+        </a>
+    </div>
 </header>
-
-    <section class="page-hero">
-        <span class="eyebrow">Favorites</span>
-        <h1>好きなもの紹介</h1>
-        <p>自分を形づくっている、お気に入りのものたちです。</p>
-    </section>
-
-    <section class="container">
-    <div class="card-grid">
-    <div class="card">
-        <div class="card-header">
-            <div class="icon">💻</div>
-            <h3>好きな言語：Python</h3>
+<main id="main" tabindex="-1">
+    <div class="wrap chapter">
+        <nav class="breadcrumbs" aria-label="パンくずリスト">
+            <a href="index.html" lang="en">Top</a><i aria-hidden="true">/</i><span aria-current="page" lang="en">Favorites</span>
+        </nav>
+        <div class="chapter-heading">
+            <p class="eyebrow">好きなもの</p>
+            <h1 class="chapter-title" lang="en">Favorites<span class="period">.</span></h1>
+            <p class="chapter-lead">コードを書くときも、友人と出かけるときも。身近にあるお気に入りを集めました。</p>
         </div>
-        <p>人間が理解しやすい用に作られているため、最序盤に学ぶ言語として最適解。はじめの一歩はPythonから。</p>
+        <div class="favorites-grid">
+            <article class="favorite favorite-python">
+                <div class="favorite-visual code-visual" aria-hidden="true">
+                    <div class="sample-window">
+                        <span class="sample-file">hello.py</span>
+                        <code><b>print</b>(<em>"Hello, world!"</em>)</code>
+                    </div>
+                </div>
+                <div class="favorite-copy"><p class="item-label" lang="en">Language</p><h2 lang="en">Python</h2><p>コードを目で追うと、何をしたいのかが素直に伝わってくる。プログラミングの最初の一歩に、Pythonがぴったりだと思う理由です。</p></div>
+            </article>
+            <article class="favorite favorite-color">
+                <div class="favorite-visual swatch-visual" aria-hidden="true">
+                    <div class="swatch swatch-dark"><span>#0A0F1D</span></div><div class="swatch swatch-cyan"><span>#38BDF8</span></div>
+                </div>
+                <div class="favorite-copy"><p class="item-label" lang="en">Color palette</p><h2>紺とネオンブルー</h2><p>落ち着いたダークブルーに、光るようなライトブルーを少し。この組み合わせが好きで、サイトの配色にも採用しました。</p></div>
+            </article>
+            <article class="favorite favorite-ramen">
+                <div class="favorite-visual"><canvas data-art="ramen" width="88" height="64" aria-hidden="true"></canvas></div>
+                <div class="favorite-copy"><p class="item-label" lang="en">Food</p><h2>ラーメン</h2><p>数ある食べ物の中でもラーメンは特別。時間とお財布に余裕があるときは、友人と一緒に食べに出かけます。</p></div>
+            </article>
+            <article class="favorite favorite-disc">
+                <div class="favorite-visual"><canvas data-art="disc" width="88" height="64" aria-hidden="true"></canvas></div>
+                <div class="favorite-copy"><p class="item-label" lang="en">Music</p><h2>ジャンルを越えて聴く音楽</h2><p>邦楽も洋楽も、ジャンルを決めずに幅広く聴きます。最近よく手が伸びるのは洋楽です。</p></div>
+            </article>
+        </div>
+        <div class="chapter-next">
+            <span>次のページ</span>
+            <a href="contact.html"><span lang="en">Contact</span><small>お問い合わせ</small><i class="arrow arrow-right" aria-hidden="true"></i></a>
+        </div>
     </div>
-
-    <div class="card">
-        <div class="card-header">
-            <div class="icon">🎨</div>
-            <h3>好きな配色：ダークブルー×ネオンブルー</h3>
-        </div>
-        <p>見ていて落ち着く紺色に光るようなライトブルーを差し色にした配色が好きで、このサイトのテーマにも採用しました。</p>
+</main>
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <span lang="en">© 2026 Rio Imai<span class="footer-divider" aria-hidden="true">/</span>My Profile</span>
+        <a href="#top">ページの先頭へ <i class="arrow arrow-up" aria-hidden="true"></i></a>
     </div>
-
-    <div class="card">
-        <div class="card-header">
-            <div class="icon">🍜</div>
-            <h3>好きな食べ物：ラーメン</h3>
-        </div>
-        <p>ラーメンは数ある食べ物の中でも特に好きで、暇とお金さえあれば友人と一緒に食べに行っています。</p>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <div class="icon">🎵</div>
-            <h3>好きな音楽：偏りは無し</h3>
-        </div>
-        <p>ジャンルにこれといったこだわりは無く、色々な曲を分け隔てなく聴いています。邦楽も洋楽も好きですが、最近は洋楽をメインに聴いています。</p>
-    </div>
-        </div>
-    </section>
-
-    <!-- フッター -->
-    <footer>
-        <p>&copy; 2026 My Profile. All Rights Reserved.</p>
-    </footer>
-
-    <script src="js/scripts.js?v=4"></script>
+</footer>
 </body>
 </html>

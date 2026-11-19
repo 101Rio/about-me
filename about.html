@@ -1,75 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | My Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css?v=4">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a0f1d">
+    <meta name="description" content="スーパーITエンジニア専攻で学ぶ Rio Imai のプロフィールと、ものづくりで大切にしていること。">
+    <title>About | Rio Imai</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAyUlEQVR42u2XsRGEMAwE5Rua+Rq+CgLXQE3U8AFVUAPlQESAMFjmfXKCQmDYlUEaSaRxBH1hWNaVCRw/4cCEJzzFCKkbv/5LgcdpPp0EvOD63TsTVw94SJwEWsQrgJI/111ghzMlYM2cJQFrubAkUFKzDAmUNo7aEqYyZEqY+4CWqNW2zQKsqsATuOsJMOEiIl0N+N3nyMmiVebFnZA1rHS50ovTnIX/I/eoE74TEU2APf2kGNDrElMitZgE79VMJ4y7xdFjOW0eGwyCXj4726FuAAAAAElFTkSuQmCC">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/artwork.js" defer></script>
+    <script src="js/scripts.js" defer></script>
 </head>
-<body data-page="about">
-
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-
-    <!-- 各HTMLの header 部分 -->
-<header>
-    <!-- 左側に配置するハンバーガーボタン -->
-    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <a href="index.html" class="logo">My Profile</a>
-
-    <nav id="nav-menu">
-        <a href="index.html" data-page="index">TOP</a>
-        <a href="about.html" data-page="about">About</a>
-        <a href="skills.html" data-page="skills">Skills & Hobbies</a>
-        <a href="favorites.html" data-page="favorites">Favorites</a>
-        <a href="contact.html" data-page="contact">Contact</a>
-    </nav>
+<body id="top" data-page="about">
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="masthead">
+    <div class="wrap header-inner">
+        <a class="brand" href="index.html" lang="en" aria-label="My Profile トップ">
+            <span class="terminal-mark" aria-hidden="true"><i></i><b></b></span><span>My Profile<span class="brand-period">.</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く" hidden>
+            <span class="burger" aria-hidden="true"></span>
+        </button>
+        <nav id="main-nav" class="main-nav" aria-label="メインナビゲーション">
+            <a href="index.html" lang="en">Top</a>
+            <a href="about.html" aria-current="page" lang="en">About</a>
+            <a href="skills.html" lang="en">Skills &amp; Hobbies</a>
+            <a href="favorites.html" lang="en">Favorites</a>
+            <a href="contact.html" lang="en">Contact</a>
+        </nav>
+        <a class="github-link" href="https://github.com/101Rio" lang="en">
+            GitHub <i class="arrow arrow-up-right" aria-hidden="true"></i>
+        </a>
+    </div>
 </header>
-
-    <section class="page-hero">
-        <span class="eyebrow">About</span>
-        <h1>About Me</h1>
-        <p>スーパーITエンジニア専攻の学生です。技術と真剣に向き合う日々を紹介します。</p>
-    </section>
-
-    <section class="container">
-        <div class="about-grid">
-            <div class="about-text">
-                <p>現在、<strong>スーパーITエンジニア専攻</strong>で最先端のテクノロジーを学んでいます。</p>
-                <p>効率的なコード、美しい設計、そして技術に対する探究心を大切にしています。新しい技術にも物怖じせず、楽しみながら手を動かすことをモットーにしています。インプットとアウトプット繰り返し、これまでにないプロダクトを生み出すことが目標です。</p>
-                <p>普段はWebサイトやアプリの制作を中心に学習しており、デザインから実装まで一貫して手を動かすことを心がけています。わからないことは調べて終わりにせず、実際に手を動かして確かめることを大切にしています。</p>
-            </div>
-            <ul class="profile-list">
-                <li>
-                    <span class="label">Major</span>
-                    スーパーITエンジニア専攻
-                </li>
-                <li>
-                    <span class="label">Interest</span>
-                    Web制作 / フロントエンド開発
-                </li>
-                <li>
-                    <span class="label">Motto</span>
-                    楽しみながら手を動かす
-                </li>
-                <li>
-                    <span class="label">Now Learning</span>
-                    HTML / CSS / JavaScript
-                </li>
-            </ul>
+<main id="main" tabindex="-1">
+    <div class="wrap chapter">
+        <nav class="breadcrumbs" aria-label="パンくずリスト">
+            <a href="index.html" lang="en">Top</a><i aria-hidden="true">/</i><span aria-current="page" lang="en">About</span>
+        </nav>
+        <div class="about-layout">
+            <section class="about-intro" aria-labelledby="about-title">
+                <p class="eyebrow">自己紹介</p>
+                <h1 class="chapter-title" id="about-title" lang="en">About me<span class="period">.</span></h1>
+                <h2 class="japanese-title">楽しみながら、<br>手を動かす。</h2>
+                <div class="reading">
+                    <p>スーパーITエンジニア専攻の Rio Imai です。Webサイトやアプリを中心に、デザインから実装まで自分の手で作っています。</p>
+                    <p>効率的なコードや美しい設計に惹かれます。分からないことは、調べたあとに小さく作って動かしてみる。その繰り返しを大切にしています。</p>
+                    <p>学んだことを自分のアイデアと結びつけて、これまでにないプロダクトを生み出すことが目標です。</p>
+                </div>
+            </section>
+            <aside class="profile-sheet" aria-labelledby="sheet-name">
+                <div class="file-bar"><i class="file-icon" aria-hidden="true"></i><span lang="en">profile.txt</span></div>
+                <div class="sheet-body">
+                    <div class="sheet-identity"><canvas data-art="profile" width="88" height="64" aria-hidden="true"></canvas><h2 lang="en" id="sheet-name">Rio Imai<span class="period">.</span></h2></div>
+                    <dl class="facts">
+                        <div><dt lang="en">Major</dt><dd>スーパーITエンジニア専攻</dd></div>
+                        <div><dt lang="en">Interest</dt><dd>Web制作・フロントエンド開発</dd></div>
+                        <div><dt lang="en">Now learning</dt><dd lang="en">HTML / CSS / JavaScript</dd></div>
+                        <div><dt lang="en">Motto</dt><dd>楽しみながら手を動かす</dd></div>
+                    </dl>
+                </div>
+            </aside>
         </div>
-    </section>
-
-    <!-- フッター -->
-    <footer>
-        <p>&copy; 2026 My Profile. All Rights Reserved.</p>
-    </footer>
-
-    <script src="js/scripts.js?v=4"></script>
+        <div class="chapter-next">
+            <span>次のページ</span>
+            <a href="skills.html"><span lang="en">Skills &amp; Hobbies</span><small>特技・趣味</small><i class="arrow arrow-right" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <span lang="en">© 2026 Rio Imai<span class="footer-divider" aria-hidden="true">/</span>My Profile</span>
+        <a href="#top">ページの先頭へ <i class="arrow arrow-up" aria-hidden="true"></i></a>
+    </div>
+</footer>
 </body>
 </html>

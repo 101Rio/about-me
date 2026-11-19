@@ -1,69 +1,85 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills & Hobbies | My Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css?v=4">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a0f1d">
+    <meta name="description" content="空手、プロ野球スピリッツ、野球観戦。Rio Imai の特技と趣味を紹介します。">
+    <title>Skills &amp; Hobbies | Rio Imai</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAyUlEQVR42u2XsRGEMAwE5Rua+Rq+CgLXQE3U8AFVUAPlQESAMFjmfXKCQmDYlUEaSaRxBH1hWNaVCRw/4cCEJzzFCKkbv/5LgcdpPp0EvOD63TsTVw94SJwEWsQrgJI/111ghzMlYM2cJQFrubAkUFKzDAmUNo7aEqYyZEqY+4CWqNW2zQKsqsATuOsJMOEiIl0N+N3nyMmiVebFnZA1rHS50ovTnIX/I/eoE74TEU2APf2kGNDrElMitZgE79VMJ4y7xdFjOW0eGwyCXj4726FuAAAAAElFTkSuQmCC">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/artwork.js" defer></script>
+    <script src="js/chapter-art.js" defer></script>
+    <script src="js/scripts.js" defer></script>
 </head>
-<body data-page="skills">
-
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-
-    <!-- 各HTMLの header 部分 -->
-<header>
-    <!-- 左側に配置するハンバーガーボタン -->
-    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <a href="index.html" class="logo">My Profile</a>
-
-    <nav id="nav-menu">
-        <a href="index.html" data-page="index">TOP</a>
-        <a href="about.html" data-page="about">About</a>
-        <a href="skills.html" data-page="skills">Skills & Hobbies</a>
-        <a href="favorites.html" data-page="favorites">Favorites</a>
-        <a href="contact.html" data-page="contact">Contact</a>
-    </nav>
+<body id="top" data-page="skills">
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="masthead">
+    <div class="wrap header-inner">
+        <a class="brand" href="index.html" lang="en" aria-label="My Profile トップ">
+            <span class="terminal-mark" aria-hidden="true"><i></i><b></b></span><span>My Profile<span class="brand-period">.</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く" hidden>
+            <span class="burger" aria-hidden="true"></span>
+        </button>
+        <nav id="main-nav" class="main-nav" aria-label="メインナビゲーション">
+            <a href="index.html" lang="en">Top</a>
+            <a href="about.html" lang="en">About</a>
+            <a href="skills.html" aria-current="page" lang="en">Skills &amp; Hobbies</a>
+            <a href="favorites.html" lang="en">Favorites</a>
+            <a href="contact.html" lang="en">Contact</a>
+        </nav>
+        <a class="github-link" href="https://github.com/101Rio" lang="en">
+            GitHub <i class="arrow arrow-up-right" aria-hidden="true"></i>
+        </a>
+    </div>
 </header>
-
-    <section class="page-hero">
-        <span class="eyebrow">Skills & Hobbies</span>
-        <h1>特技・趣味</h1>
-        <p>技術の学びを支えている、普段の特技や趣味を紹介します。</p>
-    </section>
-
-    <section class="bg-dark">
-        <div class="container">
-            <div class="card-grid">
-                <div class="card clickable-card">
-                    <div class="icon">🥋</div>
-                    <h3>特技：空手</h3>
-                    <p>基本姿勢や体の使い方を追求するのが好きで、日々鍛錬を重ねています。培った集中力と粘り強さを活かし、技術の習得にも愚直に取り組みます。</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🎮</div>
-                    <h3>趣味：プロ野球スピリッツ</h3>
-                    <p>野球の戦略や配球を考えるのが楽しいです。好きな選手をコレクションするために累計30万円も課金しています。</p>
-                </div>
-                <div class="card">
-                    <div class="icon">⚾️</div>
-                    <h3>趣味：球技</h3>
-                    <p>野球観戦を中心に、いろいろな球技を見るのが大好きです。試合で見せる選手たちの圧倒的なパッションや地道な努力の姿勢をリスペクトしており、自分自身のものづくりや技術に向き合う原動力にしています。</p>
-                </div>
-            </div>
+<main id="main" tabindex="-1">
+    <div class="wrap chapter">
+        <nav class="breadcrumbs" aria-label="パンくずリスト">
+            <a href="index.html" lang="en">Top</a><i aria-hidden="true">/</i><span aria-current="page" lang="en">Skills &amp; Hobbies</span>
+        </nav>
+        <div class="chapter-heading">
+            <p class="eyebrow">特技・趣味</p>
+            <h1 class="chapter-title" lang="en">Skills &amp; Hobbies<span class="period">.</span></h1>
+            <p class="chapter-lead">空手の稽古から、ゲームの配球まで。普段の自分が夢中になれるもの。</p>
         </div>
-    </section>
-
-    <!-- フッター -->
-    <footer>
-        <p>&copy; 2026 My Profile. All Rights Reserved.</p>
-    </footer>
-
-    <script src="js/scripts.js?v=4"></script>
+        <div class="hobby-list">
+            <article class="hobby hobby-karate">
+                <div class="hobby-visual"><canvas data-art="karate" width="88" height="64" aria-hidden="true"></canvas></div>
+                <div class="hobby-copy">
+                    <span class="item-label" lang="en">Karate</span>
+                    <h2>空手</h2><p>基本姿勢や体の使い方は、少し意識を変えるだけで奥が深くなります。日々の鍛錬で培った集中力と粘り強さは、新しい技術を学ぶときにも活きています。</p>
+                </div>
+            </article>
+            <article class="hobby hobby-play">
+                <div class="hobby-visual"><canvas data-art="play" width="88" height="64" aria-hidden="true"></canvas></div>
+                <div class="hobby-copy">
+                    <span class="item-label" lang="en">Gaming</span>
+                    <h2>プロ野球スピリッツ</h2><p>次の一球をどう組み立てるか。野球の戦略と配球を考えるのが楽しみです。好きな選手を集めるのも楽しみのひとつで、これまでの課金額は累計30万円です。</p>
+                </div>
+            </article>
+            <article class="hobby hobby-baseball">
+                <div class="hobby-visual"><canvas data-art="baseball" width="88" height="64" aria-hidden="true"></canvas></div>
+                <div class="hobby-copy">
+                    <span class="item-label" lang="en">Sports</span>
+                    <h2>野球観戦・球技</h2><p>いろいろな球技を見るのが好きで、特によく観るのは野球です。選手が試合で見せる情熱と、その裏にある地道な努力に、自分も頑張ろうと思えます。</p>
+                </div>
+            </article>
+        </div>
+        <div class="chapter-next">
+            <span>次のページ</span>
+            <a href="favorites.html"><span lang="en">Favorites</span><small>好きなもの</small><i class="arrow arrow-right" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <span lang="en">© 2026 Rio Imai<span class="footer-divider" aria-hidden="true">/</span>My Profile</span>
+        <a href="#top">ページの先頭へ <i class="arrow arrow-up" aria-hidden="true"></i></a>
+    </div>
+</footer>
 </body>
 </html>
